@@ -2,6 +2,7 @@
 
 <h1>All Products</h1>
 
+
 <table>
   <thead>
     <tr>
@@ -9,9 +10,12 @@
       <th>Price</th>
       <th>Description</th>
       <th>Image url</th>
+      <th>Buy</th>
       <th colspan="3"></th>
+      
     </tr>
   </thead>
+
 
   <tbody>
     <% @products.each do |product| %>
@@ -26,9 +30,8 @@
         <td><span class="product_title"><%= link_to "#{product.title}", product_path(product) %></span><%= product.description %></td>
         <td><%= print_price(product.price) %></td>
         <td><%= print_stock(product.stock) %></td>
-        
-        <td></td>
         <td><%= image_tag "products/#{product.image_url}" %></td>
+        <td><%= link_to "Add to Cart", new_order_item_path(product_id: product.id) %></td>
       </tr>
     <% end %>
   </tbody>
