@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+<!-- <p id="notice"><%= notice %></p>
 
 <p>
   <strong>User:</strong>
@@ -10,5 +10,34 @@
   <%= @order.status %>
 </p>
 
+<p>
+	Item Count: <%= @order.order_items.count %>
+</p>
 <%= link_to 'Edit', edit_order_path(@order) %> |
-<%= link_to 'Back', orders_path %>
+<%= link_to 'Back', orders_path %> -->
+
+
+<h1>Your Order</h1>
+
+ <table>
+ 	<tr>
+ 		<th>Customer</th>
+ 		<td><%= @order.user_id %></td>
+ 	</tr>
+ 	<tr>
+ 		<th>Status:</th>
+ 		<td><%= @order.status %></td>
+ 	</tr>
+ 	<tr>
+ 		<th>Items:</th>
+ 		<td><%= @order.order_items %></td>
+ 	</tr>
+ 	<tr>
+ 		<th>Items</th>
+ 		<th>Title</th>
+ 		<th>Quantity</th>
+ 		<th>Unit Price</th>
+ 		<th>Subtotal</th>
+ 	</tr>
+ 	<!-- more code will go here -->
+ </table>
