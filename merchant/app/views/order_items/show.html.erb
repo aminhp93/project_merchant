@@ -15,5 +15,6 @@
   <%= @order_item.quantity %>
 </p>
 
+<%= link_to 'Remove', @item, method: :delete, data: { confirm: 'Are you sure?' } %>
 <%= link_to 'Edit', edit_order_item_path(@order_item) %> |
 <%= link_to 'Back', order_items_path %>
