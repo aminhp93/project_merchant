@@ -59,6 +59,7 @@ class OrdersController < ApplicationController
       format.html { redirect_to orders_url, notice: 'Order was successfully destroyed.' }
       format.json { head :no_content }
     end
+    # redirect_to product_path
   end
 
   private

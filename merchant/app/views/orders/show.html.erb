@@ -52,3 +52,7 @@
  	<th><%= print_price @order.total %></th>
  </table>
 
+ <%= link_to "Empty Cart", @order, data: {confirm: "Are you sure"}, method: :delete %>
+
+
+
