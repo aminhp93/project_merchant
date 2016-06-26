@@ -23,6 +23,7 @@
  	<tr>
  		<th>Customer</th>
  		<td><%= @order.user_id %></td>
+ 		<td><%= @order.user.name if @order.user %></td>
  	</tr>
  	<tr>
  		<th>Status:</th>
@@ -31,6 +32,10 @@
  	<tr>
  		<th>Items:</th>
  		<td><%= @order.order_items %></td>
+ 	</tr>
+ 	<tr>
+ 		<th>Order Total:</th>
+ 		<td><%= print_price @order.total %></td>
  	</tr>
  	<tr>
  		<th>Items</th>
@@ -45,13 +50,13 @@
  	<tr>
  		<td></td>
  		<td><%= item.product.title %></td>
- 		<td><%= link_to item.quantity, edit_order_path(item) %></td>
+ 		<td><%= link_to item.quantity, edit_order_item_path(item) %></td>
  		<td><%= print_stock item.product.stock, item.quantity %></td>
  		<td><%= print_price item.product.price %></td>
  		<td><%= print_price item.subtotal %></td>
+ 		<td><%= link_to 'Destroy', item, method: :delete, data: {confirm: "Are you sure?" } %></td>
  	</tr>
  	<% end %>
- 	<th><%= print_price @order.total %></th>
  </table>
 
  <%= link_to "Empty Cart", @order, data: {confirm: "Are you sure"}, method: :delete %>
