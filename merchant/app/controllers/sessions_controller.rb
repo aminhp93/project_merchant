@@ -3,6 +3,8 @@ class SessionsController < ApplicationController
 		# render text: request.env["omniauth.auth"]
 		@user = User.find_or_create_by_auth(request.env["omniauth.auth"])
 		session[:user_id] = @user.id
+		load_order
+		@order.update_attributes(user: @user)
 		redirect_to products_path, notice: "Logged in as #{@user.name}"
 	end
 

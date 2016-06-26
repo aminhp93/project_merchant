@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :addresses
   root to: "products#index"
   
   match "/login" => redirect("/auth/twitter"), as: :login, via: :get
