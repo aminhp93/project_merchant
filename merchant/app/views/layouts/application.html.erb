@@ -7,6 +7,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div class="account">
+	<% if current_user %>
+		<span>Welcome <%= current_user.name %></span>
+		<%= link_to "logout", logout_path, id: "login" %>
+	<% else %>
+		<%= link_to "login", login_path, id: "logout" %>
+	<% end %>
+</div>
 <div class="wrapper">
 	<div class="header">
 		<h1>FoodWorks</h1>
