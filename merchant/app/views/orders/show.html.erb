@@ -19,6 +19,8 @@
 
 <h1>Your Order</h1>
 
+<<%= form_for @order do |f| %>
+
  <table>
  	<tr>
  		<th>Customer</th>
@@ -57,7 +59,16 @@
  		<td><%= link_to 'Destroy', item, method: :delete, data: {confirm: "Are you sure?" } %></td>
  	</tr>
  	<% end %>
+ 	<tr>
+ 		<th>Shipping To:</th>
+ 		<td>
+ 			<%= f.select :address_id, current_user.addresses.collect{|a| [a.to_s, a.id]} %>
+ 			<%= link_to "Add an Address", new_address_path %>
+ 		</td>
+ 	</tr>
  </table>
+
+ <% end %>
 
  <%= link_to "Empty Cart", @order, data: {confirm: "Are you sure"}, method: :delete %>
 
