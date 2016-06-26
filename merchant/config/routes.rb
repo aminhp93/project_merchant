@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  root to: "products#index"
+  
   match "/login" => redirect("/auth/twitter"), as: :login, via: :get
   match "/logout" => "sessions#destroy", as: :logout, via: :get
   match '/auth/:provider/callback', to: 'sessions#create', via: :get
